@@ -34,7 +34,7 @@ export const store = new Vuex.Store({
   actions: {
     async getUserList  ({commit}) {
     let list = await API.list()
-      commit('setUserList', list.data)
+      commit('setUserList', list.data.splice(10,29))   //i know this is so stupid, but i dont find method for user endpoint for limit users
     },
     async getUserInfo ({commit}, payload){
       let info = await API.info(payload)
